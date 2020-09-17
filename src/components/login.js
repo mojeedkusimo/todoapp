@@ -30,13 +30,57 @@ class Login extends Component {
     const data = {
         [e.target.id]: e.target.value
     }
-    axios.post('https://still-waters-85911.herokuapp.com/api/login', data)
-        .then((res) => {
-            console.log(res);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    // axios.post('http://localhost:7000/api/login', data)
+    //     .then((res) => {
+    //         console.log(res);
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     })
+
+        // let options = {
+        //     method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        //     mode: 'no-cors', // no-cors, *cors, same-origin
+        //     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        //     credentials: 'include', // include, *same-origin, omit
+        //     headers: {
+        //       'Content-Type': 'application/json'
+        //       // 'Content-Type': 'application/x-www-form-urlencoded',
+        //     },
+        //     // redirect: 'follow', // manual, *follow, error
+        //     referrerPolicy: 'origin-when-cross-origin', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //     body: JSON.stringify(data) // body data type must match "Content-Type" head
+        // }
+
+    // fetch('http://localhost:7000/api/login', options)
+    // .then((response) => {response.json()})
+    // .then((info) => {
+    //     console.log(info);
+    // }).catch((err) => {
+    //     console.log(err);
+    // })
+
+    fetch('http://localhost:7000/api/login', {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, *cors, same-origin
+        // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        // redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'origin-when-cross-origin', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data) // body data type must match "Content-Type" head
+
+    })
+    .then(response => response.json())
+    .then(data => {
+    console.log('Success:', data);
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
 
     // if (this.state.task === "" && this.state.time === "")
     // {
@@ -68,7 +112,11 @@ class Login extends Component {
         <h2 className='text-center'>Login</h2>
           <Row>
             <Col xs="12" md={{ size: 6, offset: 3 }}>
-              <Form onSubmit={this.handleSubmit}>
+              <Form onSubmit={() => {
+                  auth.login(() => {
+                      this.props.history.push('/todoapp/mytodos')
+                  });
+              }}>
                 <FormGroup row>
                   <Col xs="12" className="form-columns">
                     <Input
@@ -98,7 +146,7 @@ class Login extends Component {
                     </Button>
                   </Col>
                   <Col xs="8" md='9' className="form-columns">
-                    <span>Don't have an account? <Link to='/signup'> Signup</Link></span>
+                    <span>Don't have an account? <Link to='/todoapp/signup'> Signup</Link></span>
                   </Col>
                 </FormGroup>
               </Form>

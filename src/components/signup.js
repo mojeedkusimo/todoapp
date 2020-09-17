@@ -56,7 +56,7 @@ class Signup extends Component {
           <Row>
             <Col xs="12" md={{ size: 6, offset: 3 }}>
             <Form onSubmit={() => {
-                    this.props.history.push('/login');
+                    this.props.history.push('/todoapp/login');
               }}>
                 <FormGroup row>
                   <Col xs="12" className="form-columns">
@@ -103,13 +103,13 @@ class Signup extends Component {
                   </Col>
                 </FormGroup>
                 <FormGroup row>
-                  <Col xs="4" md="2" className="form-columns">
+                  <Col xs="4" md="3" className="form-columns">
                     <Button id="add-todo" color="success">
                       Signup
                     </Button>
                   </Col>
-                  <Col xs="8" md="10" className="form-columns">
-                    <span>Already have an account? <Link to='/login'> Login</Link></span>
+                  <Col xs="8" md="9" className="form-columns">
+                    <span>Already have an account? <Link to='/todoapp/login'> Login</Link></span>
                   </Col>
                 </FormGroup>
               </Form>

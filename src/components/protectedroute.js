@@ -10,7 +10,7 @@ class ProtectedRoute extends React.Component {
         return auth.isAuthenticated() ? (
             <Component />
         ) : (
-            <Redirect to={{ pathname: '/' }} />
+            <Redirect to={{ pathname: '/todoapp/' }} />
         );
     }
 }

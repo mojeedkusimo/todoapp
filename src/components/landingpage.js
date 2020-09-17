@@ -61,21 +61,21 @@
                   <FormGroup row>
                       <Col xs="4" className="form-columns text-right">
                       <Button id="add-todo" color="success" onClick={() => {
-                        this.props.history.push('/login');
+                        this.props.history.push('/todoapp/login');
                       }}>
                           Login
                       </Button>
                       </Col>
                       <Col xs="4" className="form-columns">
                       <Button id="add-todo" color="success" onClick={() => {
-                        this.props.history.push('/signup');
+                        this.props.history.push('/todoapp/signup');
                       }}>
                         Signup
                       </Button>
                       </Col>
                       <Col xs="4" className="form-columns">
                       <Button id="add-todo" color="danger" onClick={() => {
-                        this.props.history.push('/mytodos');
+                        this.props.history.push('/todoapp/mytodos');
                       }}>
                        MyTodos
                       </Button>

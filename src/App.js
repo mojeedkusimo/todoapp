@@ -14,11 +14,11 @@ class App extends Component {
       <div className="App">
       <Switch>
         {/* <ProtectedRoute exact path='/MyTodos' component={Navbar} /> */}
-        <Route exact path='/' component={LandingPage} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/signup' component={Signup} />
+        <Route exact path='/todoapp/' component={LandingPage} />
+        <Route exact path='/todoapp/login' component={Login} />
+        <Route exact path='/todoapp/signup' component={Signup} />
         {/* <Route exact path='/MyTodos' component={MyTodos} /> */}
-        <ProtectedRoute exact path='/MyTodos' component={MyTodos} />
+        <ProtectedRoute exact path='/todoapp/mytodos' component={MyTodos} />
         <Route path='*' component={ErrorPage}/>
       </Switch>
       </div>

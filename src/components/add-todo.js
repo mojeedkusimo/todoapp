@@ -54,13 +54,13 @@ class AddTask extends Component {
         <Container>
         <Row>
           <Col xs='6'>
-            <Link to='/' className='text-white'>Back to Landingpage</Link>
+            <Link to='/todoapp/' className='text-white'>Back to Landingpage</Link>
           </Col>
           <Col xs='6' className='text-right'>
 
             <Form onSubmit={() => {
                     auth.logout(() => {
-                        this.props.history.push('/login');
+                        this.props.history.push('/todoapp/login');
                     })
                 }}>
 
