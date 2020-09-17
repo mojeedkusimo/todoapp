@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Button, Form, FormGroup, Input } from "reactstrap";
 import { Link } from "react-router-dom";
-import auth from './auth';
-class AddTask extends Component {
+
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,68 +52,64 @@ class AddTask extends Component {
     return (
       <div className="input-fields">
         <Container>
-        <Row>
-          <Col xs='6'>
-            <Link to='/' className='text-white'>Back to Landingpage</Link>
-          </Col>
-          <Col xs='6' className='text-right'>
-
-            <Form onSubmit={() => {
-                    auth.logout(() => {
-                        this.props.history.push('/login');
-                    })
-                }}>
-
-                <button className='btn btn-success'>Logout</button>
-
-            </Form>
-          </Col>
-        </Row>    
-        <h2 className='text-center'>Add todo</h2>
+        <h2 className='text-center'>Signup</h2>
           <Row>
             <Col xs="12" md={{ size: 6, offset: 3 }}>
-              <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={() => {
+                    this.props.history.push('/login');
+              }}>
                 <FormGroup row>
                   <Col xs="12" className="form-columns">
                     <Input
                       onChange={this.handleChange}
                       type="text"
-                      id="task"
-                      placeholder="Enter Your Task"
-                      value={this.state.task}
+                      id="firstname"
+                      placeholder="Firstname"
+                      value={this.state.firstname}
                     />
                   </Col>
                 </FormGroup>
                 <FormGroup row>
-                    <Col xs="7" className="form-columns">
-                        <Input 
-                            onChange={this.handleChange} 
-                            type="date" 
-                            id="date" 
-                            value={this.state.date} 
-                        />
-                    </Col>
-                    <Col xs="5" className="form-columns">
-                        <Input
-                            onChange={this.handleChange}
-                            type="select"
-                            name="select"
-                            id="time"
-                            value={this.state.time}
-                        >
-                        <option>Select Time</option>
-                        <option>5:00am</option>
-                        <option>9:00am</option>
-                        <option>4:00pm</option>
-                        {/* <option>5</option> */}
-                        </Input>
-                    </Col>
+                  <Col xs="12" className="form-columns">
+                    <Input
+                      onChange={this.handleChange}
+                      type="text"
+                      id="lastname"
+                      placeholder="Lastname"
+                      value={this.state.lastname}
+                    />
+                  </Col>
                 </FormGroup>
                 <FormGroup row>
-                  <Col xs="5" className="form-columns">
+                  <Col xs="12" className="form-columns">
+                    <Input
+                      onChange={this.handleChange}
+                      type="email"
+                      id="email"
+                      placeholder="Email"
+                      value={this.state.email}
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col xs="12" className="form-columns">
+                    <Input
+                      onChange={this.handleChange}
+                      type="password"
+                      id="password"
+                      placeholder="Password"
+                      value={this.state.password}
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col xs="4" md="2" className="form-columns">
                     <Button id="add-todo" color="success">
-                      Add Task
+                      Signup
                     </Button>
+                  </Col>
+                  <Col xs="8" md="10" className="form-columns">
+                    <span>Already have an account? <Link to='/login'> Login</Link></span>
                   </Col>
                 </FormGroup>
               </Form>
@@ -125,4 +121,4 @@ class AddTask extends Component {
   }
 }
 
-export default AddTask;
+export default Signup;
