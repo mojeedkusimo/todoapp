@@ -60,7 +60,7 @@ class AddTask extends Component {
 
             <Form onSubmit={() => {
                     auth.logout(() => {
-                        this.props.history.push('/todoapp/login');
+                        this.props.history.push('/todoapp/');
                     })
                 }}>
 

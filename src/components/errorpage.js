@@ -9,7 +9,7 @@ class ErrorPage extends Component {
     return (
       <div className="input-fields">
         <Container className='text-center'>
-        <h1>I am sorry the Page you looking for does not exist</h1>
+        <h1>I am sorry the Page you are looking for does not exist</h1>
         <h3>Please go back to the <Link to='/todoapp/'>Landingpage</Link></h3>
         </Container>
       </div>
